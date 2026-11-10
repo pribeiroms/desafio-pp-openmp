@@ -1,0 +1,4 @@
+cv_openmp
+*.o
+a.out
+extra.md
