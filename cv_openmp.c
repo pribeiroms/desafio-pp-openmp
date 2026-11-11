@@ -3,10 +3,10 @@
  * Coeficiente de Variação para dados agrupados em intervalos de classe
  *
  * Compilar:  gcc -O2 -fopenmp cv_openmp.c -o cv_openmp -lm
- * Executar:  ./cv_openmp dados.txt            (dados do exercício, N = 1000)
+ * Executar:  ./cv_openmp dados/dados.txt      (dados do exercício, N = 1000)
  *            ./cv_openmp --bench 10000000     (teste de desempenho com N grande)
  *
- * Variável de ambiente opcional: OMP_NUM_THREADS=4 ./cv_openmp dados.txt
+ * Variável de ambiente opcional: OMP_NUM_THREADS=2 ./cv_openmp dados/dados.txt
  */
 
 #include <stdio.h>
@@ -192,7 +192,7 @@ int main(int argc, char **argv)
         printf("Modo benchmark: %ld pessoas geradas em memoria.\n", n);
         reps = 5;
     } else {
-        const char *arq = (argc >= 2) ? argv[1] : "dados.txt";
+        const char *arq = (argc >= 2) ? argv[1] : "dados/dados.txt";
         FILE *f = fopen(arq, "r");
         if (!f) { perror(arq); return 1; }
 
